@@ -1,0 +1,12 @@
+{
+  "log": {
+    "level":"Debug",
+    "_note":"LEVEL default is INFO",
+    "color":true,
+    "timestamp":true
+  },
+  "files":{
+    "stories":"stories/**/*.kstory",
+    "steps":"steps/**/*.kstep"
+  }
+}

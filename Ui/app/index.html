@@ -1,0 +1,131 @@
+<!doctype html>
+<html ng-app="tok" ng-controller="main">
+<head>
+  <meta charset="utf-8">
+  <title>Tree of Knowledge</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+  <!-- endbuild -->
+
+
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+
+  <script src="angular/modules/http.js"></script>
+  <script src="angular/modules/URL.js"></script>
+
+  <script src="angular/ctrls/main.js"></script>
+  <script src='angular/ctrls/loginCtrl.js'></script>
+  <script src="angular/ctrls/accountCtrl.js"></script>
+  <script src="modals/resultModalCtrl.js"></script>
+
+  <script src="angular/config/router.js"></script>
+
+  <script src="angular/services/user.js"></script>
+  <script src="angular/services/register.js"></script>
+  <script src="angular/services/tests.js"></script>
+
+  <script src="angular/interceptors/errorHandler.js"></script>
+
+
+  <script src='routes/root/rootController.js'></script>
+  <script src="routes/root/rootService.js"></script>
+
+  <script src="routes/search/search.js"></script>
+
+  <script src="routes/admin/admin.js"></script>
+
+  <link href="styles.css" rel="stylesheet">
+
+
+  <!-- endbuild -->
+
+
+</head>
+<body style="background-color:#e2ffef; padding:0;margin:0; height:100%">
+
+<div class='container-fluid'
+     style="background-color:#219161; width:100%; min-height:50px; margin:0;">
+  <div class='row' style="margin:0 0 0 10">
+    <div class="col-xs-12" style="text-align: center; padding-top:5; font-size:60px;color:white">
+      Kalieki E2E
+    </div>
+  </div>
+</div>
+
+
+<!--*****************************************-->
+<!--                Start of menu
+<!--*****************************************-->
+
+
+
+
+<div class="container-fluid">
+  <div class="row" style="background-color:#219161; padding:10px 10px; border-bottom:2px solid black;">
+    <div class="col-xs-3"  ng-repeat="btn in buttons" style="display:inline-block;">
+        <button class="btn btn-small btn-default btn-block" style="background-color: transparent; color:black" ng-click="btn.click()">{{btn.name}}</button>
+    </div>
+  </div>
+</div>
+
+
+<!--*****************************************-->
+<!--                End of menu
+<!--*****************************************-->
+
+
+<div class='container-fluid' style="padding-top :30px;">
+  <div class='row' ng-if="user.isLoggedIn()">
+
+
+
+
+    <div style="margin-left:30px; margin-right:20px">
+
+      <ng-view></ng-view>
+
+    </div>
+
+  </div>
+
+  <div ng-if="!user.isLoggedIn()">
+
+   <div class="col-xs-8 col-xs-offset-2">
+     <carousel interval="5000">
+      <slide ng-repeat="slide in slides" active="slide.active">
+        <img ng-src="{{slide.img}}" style=" width:100%; height:600px">
+      </slide>
+    </carousel>
+
+   <button class="btn btn-block btn-primary" style="margin-top:10px;" ng-click="loginClick()">Login / Register</button>
+   </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>

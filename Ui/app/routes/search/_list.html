@@ -1,0 +1,31 @@
+<div class='row'>
+
+  <table class="table table-striped" style="border:2px solid black">
+
+    <tr style="border-bottom:2px solid black">
+      <th  style="text-align: center">In Forest</th>
+      <th  style="text-align: center">Subscribers</th>
+      <th  style="text-align: center">Name</th>
+      <th  style="text-align: center">Parent</th>
+      <th  style="text-align: center"> Age-Restricted</th>
+    </tr>
+    <tr ng-repeat="row in forest.gsList()">
+      <td width="10%" style="text-align: center; border-right:1px solid grey">
+        <span class="glyphicon glyphicon-check" ng-if="user.hasSub(row.id)" ng-click="unsub(row)"></span>
+        <span class="glyphicon glyphicon-unchecked" ng-if="!user.hasSub(row.id)" ng-click="sub(row)"></span>
+      </td>
+      <td width="20%" style="text-align: center; border-right:1px solid grey" >
+        {{row.value.subCount}}
+      </td>
+      <td width="30%" style="text-align: center;border-right:1px solid grey">
+        {{row.id}}
+      </td>
+      <td width="30%" style="text-align: center;border-right:1px solid grey">
+        {{row.value.parent}}
+      </td>
+      <td width="10%" style="text-align: center">
+        {{getNsfwTag(row.value.nsfw)}}
+      </td>
+    </tr>
+  </table>
+</div>

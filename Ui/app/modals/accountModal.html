@@ -1,0 +1,17 @@
+<div class="modal-header">
+  <h3 class="modal-title" style="display: inline-block">Account</h3>
+  <div class="pull-right"><button class="btn btn-danger" ng-click="out()">Logout</button></div>
+</div>
+<div class="modal-body">
+
+  User:{{user.gsUsername()}}<br>
+  Token:{{user.gsToken()}}
+
+
+
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="ok()">Save</button>
+  <button class="btn btn-default" ng-click="ok()">Cancel</button>
+
+</div>

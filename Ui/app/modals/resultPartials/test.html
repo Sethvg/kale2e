@@ -1,0 +1,49 @@
+<div class='container-fluid'>
+  <div class="row">
+    <div class="col-xs-2" style="padding:0px;font-size: 16px; font-weight: bold"> Outcome:</div>
+    <div class="col-xs-10" style="color:{{getTest().passed?'Green':'Red'}}">{{getTest().passed?"PASSED":"FAILED"}}</div>
+  </div>
+  <div class="row" ng-if="getFile()">
+    <div class="col-xs-2" style="padding:0px;font-size: 16px; font-weight: bold" > File:</div>
+    <div class="col-xs-10">{{getFile()}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2" style="padding:0px;font-size: 16px; font-weight: bold"> Lines Ran:</div>
+    <div class="col-xs-10">{{(1+getTest().pLineIndex)}} - {{getTest().pLineIndex + getTest().lines.length}}</div>
+  </div>
+  <div class="row">
+
+      <div class="col-xs-2" style="padding:0px;font-size: 16px; font-weight: bold"> Passed:</div>
+      <div class="col-xs-10" style="color:green;">{{getPassedLines(getTest().lines).length}}</div>
+
+  </div>
+  <div class="row">
+
+    <div class="col-xs-2" style="padding:0px;font-size: 16px; font-weight: bold"> Failed:</div>
+    <div class="col-xs-10" style="color:{{getFailedLines(getTest().lines).length == 0?'black':'red'}}">{{getFailedLines(getTest().lines).length}}</div>
+
+  </div>
+  <div class="row">
+
+    <div class="col-xs-2" style="padding:0px;font-size: 16px; font-weight: bold"> Skipped:</div>
+    <div class="col-xs-10">{{getSkippedLines(getTest().lines).length}}</div>
+
+  </div>
+  <div class="row">
+    <div class="col-xs-2" style="padding:0px;font-size: 16px; font-weight: bold"> Test:</div>
+
+  </div>
+  <div class="row" ng-repeat="l in getTest().lines track by $index">
+    <div ng-if="l.content.type == 'RUN'" ng-style="getLineStyle($index)">{{l.content.content}}</div>
+    <div ng-if="l.content.type == 'LOG'">LOG > {{l.content.content}}</div>
+
+    <div class="ng-row" ng-if="l.consoleBuffer.length != 0">
+        <div ng-repeat="c in l.consoleBuffer" style="display:block; padding-left:20px">
+          {{c}}
+        </div>
+    </div>
+    <div class="row" ng-if="!l.passed" style="color:red; padding:0px 50px; white-space: wrap">
+        {{l.error}}
+    </div>
+  </div>
+</div>

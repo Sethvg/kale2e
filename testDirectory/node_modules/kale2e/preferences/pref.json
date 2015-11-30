@@ -1,0 +1,47 @@
+{
+  "dev":
+  {
+    "name":"Development",
+    "log": {
+      "level":"Info",
+      "color":true,
+      "timestamp":true
+    },
+    "files":{
+      "stories":"stories",
+      "steps":"steps"
+    },
+    "stories":{
+      "tags":"DigitWords",
+      "author":null,
+      "dateMin":null,
+      "dateMax":null
+    },
+    "vars":{
+        "ServerLoc":"http://localhost/getHelloWorld"
+    }
+  },
+
+  "test":{
+    "name":"Test",
+    "log": {
+      "level":"Debug",
+      "color":true,
+      "timestamp":true
+    },
+    "files":{
+      "stories":"stories",
+      "steps":"steps"
+    },
+    "stories":{
+      "tags":["REGRESSION"],
+      "author":[],
+      "dateMin":"2012-1-1",
+      "dateMax":"2015-2-2"
+    },
+    "vars":{
+      "ServerLoc":"http://www.uatServer.com/getHelloWorld"
+    }
+
+  }
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$/../Ui" libraries="{Ui node_modules}" />
+    <file url="file://$PROJECT_DIR$" libraries="{kalE2E node_modules}" />
+    <file url="file://$PROJECT_DIR$/../server" libraries="{server node_modules}" />
+    <file url="file://$PROJECT_DIR$/../testDirectory" libraries="{testDirectory node_modules}" />
+  </component>
+</project>

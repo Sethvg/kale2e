@@ -1,0 +1,51 @@
+<div class='container-fluid'>
+  <div class='row'>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title" style="font-size: 20px; text-align: center">Tests</h3>
+      </div>
+      <div class="panel-body">
+        <table class="table table-striped">
+
+          <tr>
+            <th class="col-xs-1" >Status</th>
+            <th class="col-xs-1">Test Date</th>
+            <th class="col-xs-1" style="text-align: center">Env</th>
+            <th class="col-xs-1" style="text-align: center">Passed</th>
+            <th class="col-xs-1" style="text-align: center">Failed</th>
+            <th class="col-xs-1" style="text-align: center">Lines Skipped</th>
+            <th>Results</th>
+          </tr>
+
+          <tr ng-repeat="(i,t) in tests.getTests() track by $index">
+            <td style="padding-left:20px;"><span class="glyphicon glyphicon-{{t.results.failed == 0?'ok':'remove'}}" style="color:{{t.results.failed == 0?'green':'red'}}"></span></td>
+            <td>{{parseDate(t.date)}}</td>
+            <td style="text-align: center">{{t.prefs.env.toUpperCase()}}</td>
+            <td style="text-align: center; color:green">{{getPassed(t.results)}}</td>
+            <td style="text-align: center; color:{{t.results.failed == 0 ? 'black':'red'}}">{{t.results.failed}}</td>
+            <td style="text-align: center; color:black">{{getSkipped(t.results)}}</td>
+
+            <td>
+              <div class="row" style="padding-left:20px">
+                <div ng-repeat="g in t.glyphArray track by $index" style="display:inline-block">
+
+                  <span ng-if="g.obj.glyph=='none'" style="margin-left:20px"></span>
+
+                  <span ng-if="g.obj.glyph!='none'" style="color:{{g.obj.passed?'green':'red'}}" class="glyphicon glyphicon-{{g.obj.glyph}}" ng-click="clickResult(i,g.story,g.test)"></span>
+
+                </div>
+
+              </div>
+            </td>
+
+
+          </tr>
+
+
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>

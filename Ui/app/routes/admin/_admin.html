@@ -1,0 +1,26 @@
+<div class='container-fluid'>
+  <div class='row'>
+    <input type="text" ng-model="cur" class="form-control" style="margin-bottom: 15px" ng-keyup="inpKey(cur,$event)" ng-show="!textArea" id="adminTF"/>
+    <div ng-class="{'has-error':!taValid, 'has-success':taValid}" ng-show="textArea" >
+      <textarea type="text" ng-model="taObj" class="form-control" style="margin-bottom: 15px; min-height: 200px" ng-keyup="inpKey(cur,$event); validateJSON(taObj,$event)" id="adminTA" ></textarea>
+      <p class="help-block" ng-if="!taValid">{{taMsg}}</p>
+    </div>
+
+
+    <div style="border:1px solid black; overflow-y: scroll; overflow-x: hidden; max-height:700px;">
+
+
+      <div class="row" ng-repeat="message in messages track by $index" style="min-height: 10px">
+        <div class="col-xs-4 col-md-2" style="text-align: center">
+
+          {{message.timestamp}}
+
+        </div>
+        <div class="col-xs-8 col-md-10" style="white-space: pre">{{message.message}}</div>
+        <br/>
+        <hr ng-if="$index != messages.length-1">
+      </div>
+    </div>
+
+  </div>
+</div>

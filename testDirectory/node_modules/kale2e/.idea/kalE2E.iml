@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/../Ui" />
+    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$/../server" />
+    <content url="file://$MODULE_DIR$/../testDirectory" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="kalE2E node_modules" level="project" />
+    <orderEntry type="library" name="Ui node_modules" level="project" />
+    <orderEntry type="library" name="server node_modules" level="project" />
+    <orderEntry type="library" name="testDirectory node_modules" level="project" />
+  </component>
+</module>

@@ -1,0 +1,12 @@
+<div class="modal-header">
+  <h3 class="modal-title" style="display: inline-block">{{title}}</h3>
+
+  <div class="modal-body">
+
+    <div ng-include="'modals/resultPartials/' + pPath + '.html'"></div>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-default" ng-click="ok()">Close</button>
+  </div>
+</div>

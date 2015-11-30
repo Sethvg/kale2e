@@ -1,0 +1,15 @@
+{
+  "name": "kale2e",
+  "version": "1.2.0",
+  "description": "A End to End Framework built in node",
+  "main": "kale2e.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Seth Van Grinsven",
+  "license": "ISC",
+  "dependencies": {
+    "ansi": "^0.3.0",
+    "sleep": "^3.0.0"
+  }
+}

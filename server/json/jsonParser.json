@@ -1,0 +1,1 @@
+function (doc, req){doc.subCount = doc.subCount + 1;var message = 'Successfully subscribed;';return [doc, message];}

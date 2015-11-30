@@ -1,0 +1,38 @@
+Priority: 10
+Tag:Demo2
+Author: Seth Van Grinsven
+Date: 2009-1-1
+
+
+#   Testing the Failure Function
+
+
+
+
+Test: Fail Purposfully
+Then Fail
+Then Fail
+Then Fail
+Then Fail
+Then Fail
+
+
+Test: Fail Purposfully
+Then Fail
+Then Fail
+Then Fail
+
+Test: Fail Purposfully
+Then Fail
+Then Fail
+Then Fail
+Then Fail
+Then Fail
+Then Fail
+Then Fail
+Then Fail
+
+
+
+Test: Fail Purposfully
+Then Fail

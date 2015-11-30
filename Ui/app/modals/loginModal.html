@@ -1,0 +1,116 @@
+<div class="modal-header">
+  <h3 class="modal-title" ng-if="register.gsPage() == 0" style="display:inline-block">Login</h3>
+  <h3 class="modal-title" ng-if="register.gsPage() != 0" style="display:inline-block">Register </h3>
+
+  <div class="pull-right">
+    <div ng-if = "register.gsPage() == 0">
+      <button class="btn btn-info" ng-click="register.gsPage(1);">Register</button>
+    </div>
+
+    <div ng-if="register.gsPage() != 0">
+
+      <button class="btn btn-default" ng-class="{'btn-warning':register.gsPage() == 1}" ng-click="register.pageDown()">Back</button>
+      <button class="btn btn-default" ng-click="pageUp()" ng-if="register.gsPage() != register.getMaxPage()" ng-class="{'btn-success':register.gsPage() == 1 && register.validateAll()}">Next</button>
+      <button class="btn btn-success" ng-click="complete()" ng-if="register.gsPage() == register.getMaxPage()">Complete</button>
+
+
+
+    </div>
+  </div>
+
+
+</div>
+
+<div class="modal-body" style="">
+
+
+
+  <!--*****************************************-->
+  <!--                LOGIN PAGE
+  <!--*****************************************-->
+  <div class='container-fluid' ng-if="register.gsPage() == 0">
+     <div class='row' style="margin-top:20px">
+          <label>Username:</label><input ng-model="register.gsUsername" ng-model-options="{getterSetter:true}" class="form-control"/>
+      </div>
+      <div class='row' style="margin-top:20px">
+          <label>Password:</label><input ng-model="register.gsPassword" ng-model-options="{getterSetter:true}" class="form-control" type="password"/>
+      </div>
+      <div class='row' style="margin-top:20px; text-align:center; color:red">
+          {{register.gsMessage()}}
+      </div>
+      <div class="row" style="margin-top:20px">
+        <button class="btn btn-primary btn-block" ng-click="ok()">Login</button>
+      </div>
+
+  </div>
+
+
+  <!--*****************************************-->
+  <!--                REGISTER PAGE 1
+  <!--*****************************************-->
+
+
+  <script type="text/ng-template" id="passwordRequirements.html">
+    <div>
+      <span style="color:green" class="glyphicon glyphicon-check" ng-if="register.validatePassword().len"></span> 8 Character Min<br/>
+      <span style="color:green" class="glyphicon glyphicon-check" ng-if="register.validatePassword().cap"></span> 1+ Uppercase<br/>
+      <span style="color:green" class="glyphicon glyphicon-check" ng-if="register.validatePassword().num"></span> 1+ Number<br/>
+      <span style="color:green" class="glyphicon glyphicon-check" ng-if="register.validatePassword().special"></span> 1+ Special Character<br/>
+      Allowed: !@#$%^&*(),.
+    </div>
+  </script>
+
+
+  <div class='container-fluid' ng-if="register.gsPage() == 1">
+      <div class='row' style="margin-top:20px">
+          <label class="control-label">Name (optional):</label>
+          <input ng-model-options="{getterSetter:true}" ng-model="register.gsRegisterName" class="form-control">
+      </div>
+    <div class='row form-group' ng-class="{'has-error':errorsUsernmame.tak || errorsUsernmame.len}" style="margin-top:20px">
+        <label class="control-label">Username:</label>
+        <input ng-model-options="{getterSetter:true}" ng-model="register.gsRegisterUsername" class="form-control" ng-blur="checkUsername()">
+        <p class="help-block" ng-if="errorsUsernmame.tak">Username is already Taken</p>
+        <p class="help-block" ng-if="errorsUsernmame.len">Invalid Username</p>
+    </div>
+    <div class='row' style="margin-top:20px">
+        <label class="control-label">Password:</label> <button popover-template="'passwordRequirements.html'" popover-title="Password Requirements" class="btn btn-default btn-xs" style="display:inline-block">Requirements</button>
+        <progressbar max="100" value="register.calcStrengthValue()" type="{{register.calcStrengthType()}}" style="margin-bottom: 3px">Password Strength</progressbar>
+         <input ng-model-options="{getterSetter:true}" ng-model="register.gsRegisterPassword" class="form-control" type="password">
+    </div>
+    <div class='row form-group' ng-class="{'has-error':passRepeatError}" style="margin-top:20px">
+        <label class="control-label">Password Repeat:</label>
+        <input ng-model-options="{getterSetter:true}" ng-model="register.gsRegisterPasswordRepeat" class="form-control" ng-blur="validatePasswordRepeat()" type="password">
+      <p class="help-block" ng-if="passRepeatError">Passwords Do not Match</p>
+
+    </div>
+    <div class='row form-group' ng-class="{'has-error':errorsEmail.len || errorsEmail.tak}" style="margin-top:20px">
+        <label class="control-label">Email:</label>
+        <input ng-model-options="{getterSetter:true}" ng-model='register.gsRegisterEmail' class="form-control" ng-blur="checkEmail()"/>
+        <p class="help-block" ng-if="errorsEmail.tak">Email already taken</p>
+        <p class="help-block" ng-if="errorsEmail.len">Email Invalid</p>
+    </div>
+
+
+  </div>
+
+  <!--*****************************************-->
+  <!--                REGISTER PAGE 2
+  <!--*****************************************-->
+
+
+
+
+
+
+
+</div>
+<div class="modal-footer">
+
+  <div class='container-fluid'>
+    <div class='row'>
+      <progressbar max="register.getMaxPage()" value="register.gsPage()">{{register.gsPage()}} / {{register.getMaxPage()}}</progressbar>
+    </div>
+  </div>
+
+
+</div>

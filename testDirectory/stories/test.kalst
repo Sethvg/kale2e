@@ -1,0 +1,28 @@
+Priority:4
+Tag:DRPBE-1555, REGRESSION
+Author:Seth Van Grinsven Not
+Date:2009-1-1
+
+
+#   As a user I want to be able to log into my account.
+#   When the login happens I hope to see the message Hello World
+#   Returned from the server
+
+>This is a preverbalize
+
+
+
+Test:When A user comes in to work and sings karaoke;
+>This is a log
+When I log in as User Kalieki with password Hunter2
+And I hit the server
+
+Then I expect current to equal expected
+
+
+Test: I have no clue what to type
+>This is a second log
+When I log in as User NotKalieki with password Hunter2
+And I hit the server
+
+Then I expect current to not equal expected
