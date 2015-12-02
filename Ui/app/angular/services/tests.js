@@ -10,7 +10,7 @@ tok.service('$tests',[function(){
   this.gsTests = function(v){
     if(v){
       v.sort(function(l,r){
-        return new Date(l.date) < new Date(r.date);
+        return new Date(r.date) - new Date(l.date) ;
       })
       for(var a = 0; a < v.length; a++){
         v[a].glyphArray = getResults(v[a].results);

@@ -77,6 +77,7 @@ router.post('/new',function(request,response,next){
     dbObj.email = email;
     dbObj.name = name;
     dbObj.token = crypto.randomBytes(64).toString('hex');
+    dbObj.tests = [];
 
 
 
@@ -193,7 +194,7 @@ router.post('/verify',function(req,res,next){
 });
 
 router.post('/verify',function(req,res,next){
-    var uname = req.body.username;
+    var uname = req.body.username.toLowerCase();
     var token = req.body.token;
 
 

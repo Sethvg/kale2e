@@ -141,6 +141,18 @@ tok.controller('main',['$scope','$user','$modal','$register','$location','$h','$
 
   var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
+  $scope.refreshTests = function(){
+    $h.verifyUser({username:$user.gsUsername(),token:$user.gsToken()}).success(function(data,config){
+      if(data != "Valid"){
+        $user.setLoggedIn(false);
+      }else{
+        $h.getTests().success(function(data,config){
+          $tests.gsTests(data);
+        });
+      }
+    });
+  }
+
 
 
 

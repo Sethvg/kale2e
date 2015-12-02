@@ -113,17 +113,39 @@ tok.controller('resultModalCtrl',['$scope','$tests',function($scope,$tests){
 
 
 
+  function calcPath() {
+    if (ind[1] == -1) {
+      $scope.pPath = 'full';
+    } else if (ind[2] == -1) {
+      $scope.pPath = 'story';
+      $scope.title = "Story - " + $scope.getFile();
+    } else if (ind[3] == -1) {
+      $scope.pPath = 'test';
+      $scope.title = "Test - " + $scope.getTest().title;
+    } else {
+      $scope.pPath = 'line';
+    }
+  }
+  calcPath();
 
-  if(ind[1] == -1){
-    $scope.pPath = 'full';
-  }else if(ind[2] == -1){
-    $scope.pPath = 'story';
-    $scope.title = "Story - " + $scope.getFile();
-  }else if(ind[3] == -1){
-    $scope.pPath = 'test';
-    $scope.title = "Test - " + $scope.getTest().title;
-  }else{
-    $scope.pPath = 'line';
+
+
+  $scope.goToTest = function(i){
+    ind[2]=i;
+    calcPath();
+  }
+
+
+  $scope.upLevel = function(){
+     if (ind[2] == -1) {
+      ind[1] = -1;
+    } else if (ind[3] == -1) {
+       ind[2] = -1;
+    } else {
+       ind[3] = -1;
+    }
+
+    calcPath();
   }
 
 

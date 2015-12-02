@@ -67,13 +67,14 @@ app.use('/upload',up);
 
 
 function verifyUser(req,res,next) {
-    var uname = req.headers.kalusername;
+    var uname = req.headers.kalusername.toLowerCase();
     var token = req.headers.kaltoken;
 
 
     util.log("User","GET",uname);
     User.get(uname,function(err,body){
         if(err){
+            console.log(err);
             util.err("Invalid Credentials", 403);
             res.end();
 
@@ -82,6 +83,8 @@ function verifyUser(req,res,next) {
                 res.kal.user = body;
                 next();
             }else{
+                console.log(body.token + ' != ' + token);
+
                 util.err("Invalid Credentials", 403);
                 res.end();
 
