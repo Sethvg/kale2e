@@ -1,4 +1,4 @@
-tok.controller('loginCtrl',['$h','$scope','$register','$modal','$http','$user', function($h,$scope,$register,$modal,$http,$user){
+tok.controller('loginCtrl',['$h','$scope','$register','$modal','$http','$user','$tests', function($h,$scope,$register,$modal,$http,$user,$tests){
 
 
   var curModal = $register.gsModal();
@@ -17,6 +17,12 @@ tok.controller('loginCtrl',['$h','$scope','$register','$modal','$http','$user', 
         $user.gsUsername(data.username);
         $user.gsToken(data.token);
         $user.setLoggedIn(true);
+        $h.getTests().success(function(data,config){
+          $tests.gsTests(data);
+        });
+
+
+
         if(angular.isDefined(data.adminAccess)) $user.setAdmin(data.adminAccess);
         curModal.close();
       }

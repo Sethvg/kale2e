@@ -2,6 +2,11 @@ tok.service('$tests',[function(){
 
   var tests;
 
+
+  this.reset = function(){
+    tests = [];
+  }
+
   this.gsTests = function(v){
     if(v){
       v.sort(function(l,r){

@@ -34,10 +34,6 @@ tok.controller('main',['$scope','$user','$modal','$register','$location','$h','$
 
 
 
-
-
-
-
   $scope.goto = function(url){
     $location.path(url);
     $scope.calcIndex();
@@ -45,7 +41,8 @@ tok.controller('main',['$scope','$user','$modal','$register','$location','$h','$
 
   $scope.calcIndex = function(){
     var p = $location.$$path;
-    if(p == '/root') index = 0;
+    if(p == '') $scope.goto('/root')
+    else if(p == '/root') index = 0;
     else if(p == '/search') index = 1;
     else if(p == '/arrange') index = 2;
     else if(p == '/admin') index = 'admin';
@@ -118,10 +115,6 @@ tok.controller('main',['$scope','$user','$modal','$register','$location','$h','$
   $scope.menuVisible = function(){ return showMenu; };
 
 
-    $user.setLoggedIn(true);
-    $user.gsToken("1129b63c9458822569ea405ccd45bd12a16d2eec46b88e4363d1dbe94e37744281cda0df1017796c806bcd896fd97b06bba1235a7d86b903e49e2200d0821739");
-    $user.gsUsername('kalieki');
-    $user.setAdmin(true);
 
 
 
@@ -141,7 +134,7 @@ tok.controller('main',['$scope','$user','$modal','$register','$location','$h','$
            }else{
              $h.getTests().success(function(data,config){
                $tests.gsTests(data);
-             })
+             });
            }
     });
   }
