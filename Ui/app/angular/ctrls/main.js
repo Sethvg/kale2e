@@ -1,6 +1,6 @@
 var tok = angular.module('tok',['ui.bootstrap','ngRoute','TokHttp']);
 
-tok.controller('main',function($scope,$user,$modal,$register, $location, $h,$tests){
+tok.controller('main',['$scope','$user','$modal','$register','$location','$h','$tests',function($scope,$user,$modal,$register, $location, $h,$tests){
     $scope.user = $user;
 
 
@@ -151,4 +151,4 @@ tok.controller('main',function($scope,$user,$modal,$register, $location, $h,$tes
 
 
 
-});
+}]);

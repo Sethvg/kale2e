@@ -1,0 +1,28 @@
+Priority: 10
+Tag:Demo,OnlyOne,Example
+Author: Seth Van Grinsven
+Date: 2009-1-1
+
+#   As a user I want to be able to log into my account iff my credentials are
+#   valid.  If not I want to be rejected from the server.
+>Testing the log in functionality
+
+
+
+Test: Pass Valid
+When I log in with the username Kalieki and password Hunter2
+Then I should be logged in
+
+Test: Pass Invalid UN
+When I log in with the username notSeth and password TysonIsAwesome
+Then I should not be logged in
+
+Test: Pass Invalid PW
+When I log in with the username Seth and password TysonIsAwesome
+Then I should not be logged in
+
+Test: Fail Only One
+When I log in with the username notSeth and password Hunter2
+Then I should be logged in
+
+

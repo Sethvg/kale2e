@@ -1,4 +1,4 @@
-tok.controller('accountInfoCtrl',function($scope,$user){
+tok.controller('accountInfoCtrl',['$scope','$user',function($scope,$user){
 
   $scope.out = function(){
     $user.setLoggedIn(false);
@@ -10,4 +10,4 @@ tok.controller('accountInfoCtrl',function($scope,$user){
 
   $scope.user = $user;
 
-});
+}]);

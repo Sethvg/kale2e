@@ -1,4 +1,4 @@
-tok.service('$register',function(){
+tok.service('$register',[function(){
 
 
   var maxPages = 3;
@@ -207,4 +207,4 @@ tok.service('$register',function(){
 
 
 
-});
+}]);

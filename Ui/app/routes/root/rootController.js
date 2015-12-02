@@ -1,4 +1,4 @@
-tok.controller('rootCtrl',function($scope, $root,$modal,$tests){
+tok.controller('rootCtrl',['$scope','$root','$modal','$tests',function($scope, $root,$modal,$tests){
 
 
   $scope.root = $root;
@@ -86,4 +86,4 @@ tok.controller('rootCtrl',function($scope, $root,$modal,$tests){
 
 
 
-});
+}]);

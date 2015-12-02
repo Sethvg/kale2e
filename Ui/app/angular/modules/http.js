@@ -1,6 +1,6 @@
 
 var TokHttp = angular.module('TokHttp',[]);
-TokHttp.service('$h',function($http, $url){
+TokHttp.service('$h',['$http','$url',function($http, $url){
 
   this.login = function(data){
     return $http({
@@ -56,4 +56,4 @@ TokHttp.service('$h',function($http, $url){
 
 
 
-});
+}]);

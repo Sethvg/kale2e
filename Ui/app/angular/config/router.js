@@ -1,4 +1,4 @@
-tok.config(function($routeProvider, $locationProvider) {
+tok.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/root', {
       templateUrl:'routes/root/_root.html',
@@ -19,4 +19,4 @@ tok.config(function($routeProvider, $locationProvider) {
 
 
 
-});
+}]);

@@ -1,4 +1,4 @@
-tok.controller('loginCtrl',function($h,$scope,$register,$modal,$http,$user, $rootScope){
+tok.controller('loginCtrl',['$h','$scope','$register','$modal','$http','$user', function($h,$scope,$register,$modal,$http,$user){
 
 
   var curModal = $register.gsModal();
@@ -118,4 +118,4 @@ tok.controller('loginCtrl',function($h,$scope,$register,$modal,$http,$user, $roo
 
 
 
-});
+}]);

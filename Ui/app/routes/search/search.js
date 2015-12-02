@@ -1,4 +1,4 @@
-tok.controller('searchCtrl',function($scope,$forest, $h, $user){
+tok.controller('searchCtrl',['$scope','$forest','$h','$user',function($scope,$forest, $h, $user){
 
   $scope.forest = $forest;
   $scope.user = $user;
@@ -41,4 +41,4 @@ tok.controller('searchCtrl',function($scope,$forest, $h, $user){
     });
   };
 
-});
+}]);

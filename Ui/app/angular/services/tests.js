@@ -1,4 +1,4 @@
-tok.service('$tests',function(){
+tok.service('$tests',[function(){
 
   var tests;
 
@@ -116,4 +116,4 @@ tok.service('$tests',function(){
 
 
 
-});
+}]);

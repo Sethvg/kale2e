@@ -1,5 +1,5 @@
 
-tok.controller('adminCtrl',function($scope,$user,$h, $timeout){
+tok.controller('adminCtrl',['$scope','$user','$h','$timeout',function($scope,$user,$h, $timeout){
 
   if($user.isAdmin() == false)
   {
@@ -175,7 +175,7 @@ tok.controller('adminCtrl',function($scope,$user,$h, $timeout){
     }else{
       add("Sending...");
       current();
-      
+
     }
 
   }
@@ -545,4 +545,4 @@ tok.controller('adminCtrl',function($scope,$user,$h, $timeout){
 
 
 
-});
+}]);

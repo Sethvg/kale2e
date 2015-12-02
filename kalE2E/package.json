@@ -1,6 +1,6 @@
 {
   "name": "kale2e",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "A End to End Framework built in node",
   "main": "kale2e.js",
   "scripts": {
@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "ansi": "^0.3.0",
+    "read": "^1.0.7",
     "sleep": "^3.0.0"
   }
 }

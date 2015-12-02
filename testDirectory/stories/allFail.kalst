@@ -1,0 +1,30 @@
+Priority: 11
+Tag:Kalieki,Example
+Author: Seth Van Grinsven,
+Date: 2009-1-1
+
+
+#   As a user I want to be able to log into my account iff my credentials are
+#   valid.  If not I want to be rejected from the server.
+
+>Testing the log in functionality
+
+
+
+Test: Testing Passing Login
+When I log in with the username Kalieki and password Hunter2
+Then I should be not logged in
+
+
+Test: This test will purposefully fail 2 w skip
+When I log in with the username Seth and password TysonIsAwesome
+Then I should be logged in
+Then I should not be logged in
+
+Test: This test will purposefully fail 3
+When I log in with the username notSeth and password Hunter2
+Then I should be logged in
+
+Test: This test will purposefully fail 4
+When I log in with the username notSeth and password TysonIsAwesome
+Then I should be logged in

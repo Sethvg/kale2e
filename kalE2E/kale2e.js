@@ -12,7 +12,9 @@ var http = require('http');
 
 
 
-
+var host='kalieki.ddns.net';
+var port='3000';
+var ext = '/upload';
 
 
 
@@ -230,12 +232,13 @@ function compileSteps(){
             log.warn("var test = require('kale2e').steps");
             log.warn();
             log.warn("//Code//");
-            log.warn("test.init(function(){//more code});");
-            log.warn("test.when('I log in',function(){//more code});");
-            log.warn("test.then('String Match',function(){//more code});");
+            log.warn("test.init(function(){....});");
+            log.warn("test.when('I log in',function(){....});");
+            log.warn("test.then('String Match',function(){....});");
             log.warn();
             log.warn("module.export = test");
             log.hashline(10);
+            kal.exit(1)
         }else if(good){
 
             log.info(files[a] + " parsed correctly.");
@@ -633,9 +636,7 @@ emitter.on('done',done);
 
 
 
-var host='localhost';
-var port='3000';
-var ext = '/upload';
+
 
 
 function up(){

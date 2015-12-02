@@ -1,4 +1,4 @@
-tok.factory('errorInterceptor',function($user,$q){
+tok.factory('errorInterceptor',['$user','$q',function($user,$q){
      return {
             'request': function(config,data) {
 
@@ -45,9 +45,9 @@ tok.factory('errorInterceptor',function($user,$q){
               return $q.reject(rejection);
             }
         };
-});
+}]);
 
 
-tok.config(['$httpProvider', function($httpProvider) {
+tok.config(['$httpProvider',function($httpProvider) {
   $httpProvider.interceptors.push('errorInterceptor');
 }]);

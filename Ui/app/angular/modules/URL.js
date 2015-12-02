@@ -1,6 +1,6 @@
-TokHttp.service('$url',function(){
+TokHttp.service('$url',[function(){
 
-  this.baseUrl = "http://localhost:3000";
+  this.baseUrl = "http://kalieki.ddns.net:3000";
 
   //****************************************//
   //                 USER                   //
@@ -25,4 +25,4 @@ TokHttp.service('$url',function(){
 
 
 
-});
+}]);

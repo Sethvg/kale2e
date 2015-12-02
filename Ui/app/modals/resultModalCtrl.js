@@ -1,4 +1,4 @@
-tok.controller('resultModalCtrl',function($scope,$tests){
+tok.controller('resultModalCtrl',['$scope','$tests',function($scope,$tests){
   var ind = $tests.getModal();
 
   $scope.pPath = '';
@@ -127,4 +127,4 @@ tok.controller('resultModalCtrl',function($scope,$tests){
   }
 
 
-});
+}]);

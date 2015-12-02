@@ -289,6 +289,7 @@ function runLine(){
         console.log = hold;
         console.warn("Failed to find regex match for " + str);
         failLine(new Error("No Matching Regex for Line"));
+        nextTest();
     }
 
 

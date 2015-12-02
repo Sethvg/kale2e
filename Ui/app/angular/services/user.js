@@ -1,4 +1,4 @@
-tok.service('$user',function($rootScope){
+tok.service('$user',['$rootScope',function($rootScope){
 
   var LoggedIn = false;
 
@@ -62,4 +62,4 @@ tok.service('$user',function($rootScope){
 
 
 
-});
+}]);
